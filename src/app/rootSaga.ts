@@ -1,4 +1,5 @@
 import { PayloadAction } from '@reduxjs/toolkit';
+import counterSaga from 'features/counter/CounterSaga';
 import { all, takeEvery } from 'redux-saga/effects';
 function* helloSaga() {
     console.log('hello');
@@ -9,5 +10,5 @@ function* logger(action: PayloadAction) {
 }
 export default function* rootSaga() {
     console.log('root saga');
-    yield all([helloSaga()]);
+    yield all([helloSaga(), counterSaga()]);
 }
